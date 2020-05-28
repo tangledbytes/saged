@@ -1,0 +1,107 @@
+.editor {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.head {
+    height: 1.95rem;
+    background-color: rgb(32, 33, 36);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.cbtns {
+    border-radius: 50%;
+    height: 0.725rem;
+    width: 0.725rem;
+    margin: 0 0 0 0.5rem;
+}
+
+.bottom {
+    background-color: rgb(32, 33, 36);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 0.25rem 0.5rem;
+    height: 1.5rem;
+}
+
+.editorBtn {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 0.8rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.icon {
+    margin-right: 0.25rem;
+    transform: rotate(0deg);
+    transition: transform 400ms;
+}
+
+.active {
+    transform: rotate(180deg);
+    transition: transform 400ms;
+}
+
+.SL {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.slinput {
+    outline: none;
+    border: none;
+    background-color: #2d2e35;
+    color: white;
+    padding: 0.5rem;
+    border: 1px solid rgb(7, 131, 233);
+    border-radius: 0.25rem;
+    width: calc(100% - 1rem);
+}
+
+.sllist {
+    max-height: 80%;
+    color: white;
+    overflow-y: auto;
+    padding: 0.75rem;
+    background-color: #1E1E1E;
+    box-shadow: 11px 13px 10px rgb(11, 13, 13, 0.4);
+    font-size: 0.9rem;
+}
+
+.sllist div {
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+.sllist::-webkit-scrollbar {
+    width: 0.8rem;
+}
+
+.sllist::-webkit-scrollbar-thumb {
+    background-color: #404040;
+}
+
+.slinput::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.option {
+    position: absolute;
+    top: 3.5rem;
+    z-index: 5;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.25rem;
+    width: 60%;
+    height: 80%;
+}
