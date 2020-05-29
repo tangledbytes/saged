@@ -102,12 +102,10 @@ function SupportedLanguages({
         document.addEventListener('mousedown', handleMouseDown)
         if (inputRef.current) {
             inputRef.current.onfocus = (ev) => {
-                console.log('[FOCUSED]')
                 if (onFocus) onFocus(ev)
             }
 
             inputRef.current.onblur = (ev) => {
-                console.log('[BLURRED]')
                 if (onBlur) onBlur(ev)
             }
 
