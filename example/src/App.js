@@ -1,10 +1,16 @@
 import React from 'react'
-
-import { ExampleComponent } from 'sag-editor'
+import './index.css'
+import Editor from 'sag-editor'
 import 'sag-editor/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+    return (
+        <div className='container'>
+            <div className='editor'>
+                <Editor />
+            </div>
+        </div>
+    )
 }
 
 export default App
