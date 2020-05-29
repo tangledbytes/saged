@@ -126,27 +126,13 @@ function SideToolbar({
             currentContentBlock.getKey()
         ) as HTMLDivElement
 
-        // let totalNodeHeight = node.clientHeight
         const computedStyle = window.getComputedStyle(node)
         const totalNodeHeight = parseInt(computedStyle.height)
-        console.log(node.offsetTop)
-        // if (computedStyle.marginTop && computedStyle.marginBottom) {
-        //     totalNodeHeight +=
-        //         parseInt(computedStyle.marginBottom) +
-        //         parseInt(computedStyle.marginTop)
-        // }
 
         setPostion({
             left: -(16 * offSetLeft),
             top: node.offsetTop + totalNodeHeight / 2 + 16 * offSetTop
         })
-        // const prop = node.getBoundingClientRect()
-        // console.log(prop, offSetLeft)
-
-        // setPostion({
-        //     top: prop.top + offSetTop * 0 + prop.height / 2,
-        //     left: prop.left - offSetLeft * 16
-        // })
     }, [editor, editorRef])
 
     return (
