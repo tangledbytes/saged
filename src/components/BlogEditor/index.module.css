@@ -1,0 +1,63 @@
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: aquamarine;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.editor {
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 100%;
+    min-height: 90vh;
+    color: rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.editorH1 {
+    font-size: 2.4rem;
+    font-weight: 500;
+    /* margin: 0.2rem 0; */
+}
+
+.editorH2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    /* margin: 0.2rem 0; */
+}
+
+.editorText {
+    font-size: 1.21rem;
+    /* margin: 0.2rem 0; */
+}
+
+.editorBlockquote {
+    padding: 0 1rem;
+    color: #6a737d;
+    border-left: 0.25rem solid #dfe2e5;
+    /* margin: 0.2rem 0; */
+    font-size: 1.22rem;
+}
+
+.editorUL,
+.editorOL {
+    font-size: 1.21rem;
+    /* margin: 0.2rem 0; */
+}
+
+.editorAtomic {
+    margin: 0.2rem 0;
+}
+
+.editor *:first-child,
+.editor *:first-child {
+    margin-top: 0;
+}
+
+.btn {
+    margin: 2rem 1.5rem 0 0;
+    font-size: 1.2rem;
+}

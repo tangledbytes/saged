@@ -1,0 +1,37 @@
+.toolbarContainer {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    background-color: white;
+    box-shadow: 0 3px 15px -3px rgba(13, 20, 33, .13);
+    border: 1px solid #333;
+    border-radius: 0.4rem;
+    z-index: 100;
+}
+
+.controls {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 0.9rem;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+}
+
+.styleButton {
+    color: black;
+    cursor: pointer;
+    padding: 0.2rem 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.activeButton {
+    background-color: #ccc;
+}
+
+.icon {
+    height: 1.21rem;
+    width: 1.21rem;
+}
