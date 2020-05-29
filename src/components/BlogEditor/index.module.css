@@ -1,7 +1,7 @@
 .container {
     height: 100%;
     width: 100%;
-    background-color: aquamarine;
+    background-color: rgb(238, 245, 258);
     padding: 2rem;
     box-sizing: border-box;
 }
@@ -35,11 +35,10 @@
 }
 
 .editorBlockquote {
-    padding: 0 1rem;
-    color: #6a737d;
-    border-left: 0.25rem solid #dfe2e5;
-    /* margin: 0.2rem 0; */
     font-size: 1.22rem;
+    margin: 0 0 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border-left: 3px solid #3eb0ef;
 }
 
 .editorUL,
