@@ -1,9 +1,12 @@
 .container {
     height: 100%;
     width: 100%;
+    box-sizing: border-box;
+}
+
+.editMode {
     background-color: rgb(238, 245, 258);
     padding: 2rem;
-    box-sizing: border-box;
 }
 
 .editor {

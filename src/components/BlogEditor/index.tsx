@@ -20,7 +20,8 @@ import InlineToolbar from './InlineToolbar'
 import {
     getNodeFromKey,
     saveToLocalStorageHOF,
-    retrieveFromLocalStorageHOF
+    retrieveFromLocalStorageHOF,
+    getAbsolutePosition
 } from './utility'
 import Button from '../Button'
 
@@ -132,6 +133,8 @@ function BlogEditor({ readonly, content, className }: IBlogEditor) {
      * Reference to the draft editor
      */
     const DraftRef = useRef<DraftEditor>(null)
+
+    const DraftContainerRef = useRef<HTMLDivElement>(null)
 
     /**
      * saveToStorageFn stores the editor contentState
@@ -277,7 +280,10 @@ function BlogEditor({ readonly, content, className }: IBlogEditor) {
     }
 
     return (
-        <div className={Classes.container}>
+        <div
+            ref={DraftContainerRef}
+            className={`${Classes.container} ${!readonly && Classes.editMode}`}
+        >
             <div
                 className={[Classes.editor, className].join(' ')}
                 onClick={focus}
@@ -293,6 +299,9 @@ function BlogEditor({ readonly, content, className }: IBlogEditor) {
                 )}
                 {!readonly && (
                     <InlineToolbar
+                        editorPosition={getAbsolutePosition(
+                            DraftContainerRef.current
+                        )}
                         editor={state}
                         editorRef={DraftRef}
                         toggleInlineStyle={toggleInlineStyle}

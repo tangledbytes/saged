@@ -2,7 +2,7 @@
     position: absolute;
     transform: translate(-50%, -100%);
     background-color: white;
-    box-shadow: 0 3px 15px -3px rgba(13, 20, 33, .13);
+    box-shadow: 0 3px 15px -3px rgba(13, 20, 33, 0.13);
     border: 1px solid #333;
     border-radius: 0.4rem;
     z-index: 100;

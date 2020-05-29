@@ -8,13 +8,12 @@ import Underline from '../../../assets/underline.svg'
  * @returns The selected area
  */
 const getVisibleSelectionRect = () => {
-    let target: any = null
+    let target: DOMRect | null = null
     // Putting it into try catch block because I observed a weird error
     // Error: getRangeAt(0): 0 is not a valid index
     // Couldn't replicate the error
     try {
         const selection = window.getSelection()?.getRangeAt(0).getClientRects()
-
         if (selection?.length) {
             if (selection[0].width === 0) target = selection[1]
             else target = selection[0]
@@ -31,6 +30,12 @@ const getVisibleSelectionRect = () => {
 export interface ToolbarConfig {
     editor: any
     editorRef: any
+    offsetTop?: number
+    offsetLeft?: number
+    editorPosition: {
+        top: number
+        left: number
+    }
     toggleInlineStyle?: (inlineStyle: string) => void
     children?: any
 }
@@ -100,28 +105,41 @@ const initialPosition = { top: -100, left: -100 }
 function InlineToolbar({
     editor,
     editorRef,
+    editorPosition,
+    offsetTop = 2 + 0.5,
+    offsetLeft = 2,
     toggleInlineStyle
 }: ToolbarConfig) {
     const [position, setPostion] = useState(initialPosition)
+
+    console.log(editorPosition)
 
     useEffect(() => {
         const selectionState = editor.getSelection()
 
         if (!selectionState.isCollapsed()) {
             const selectionRect = getVisibleSelectionRect()
-
             if (!selectionRect) return
 
             // The toolbar shouldn't be positioned directly on top of the selected text,
             // but rather with a small offset so the caret doesn't overlap with the text.
-            const offset = 16 * 0.5
-            const offsetTop =
+            const offsetTopRem = 16 * offsetTop
+            const offsetLeftRem = 16 * offsetLeft
+            const pageoffset =
                 window.pageYOffset || document.documentElement.scrollTop
 
             setPostion({
-                top: selectionRect.top + offsetTop - offset,
+                top:
+                    selectionRect.top +
+                    pageoffset -
+                    editorPosition.top -
+                    offsetTopRem,
 
-                left: selectionRect.left + selectionRect.width / 2
+                left:
+                    selectionRect.left +
+                    selectionRect.width / 2 -
+                    editorPosition.left -
+                    offsetLeftRem
             })
         } else {
             setPostion(initialPosition)
