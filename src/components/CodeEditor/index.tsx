@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, Fragment } from 'react'
 import Manoco from '@monaco-editor/react'
 import { SUPPORTED_LANGUAGES } from './supportedLanguages'
 
@@ -184,15 +184,15 @@ function Header() {
         <div className={Classes.head}>
             <div
                 className={Classes.cbtns}
-                style={{ backgroundColor: '#F53434' }}
+                style={{ backgroundColor: '#FF5F56' }}
             />
             <div
                 className={Classes.cbtns}
-                style={{ backgroundColor: '#F5F932' }}
+                style={{ backgroundColor: '#FFBD2E' }}
             />
             <div
                 className={Classes.cbtns}
-                style={{ backgroundColor: '#00D809' }}
+                style={{ backgroundColor: '#27C93F' }}
             />
         </div>
     )
@@ -207,7 +207,7 @@ function Header() {
  */
 function getHeight(renderFooter: boolean, renderHeader: boolean) {
     let height = 0
-    const HEADER_HEIGHT = 1.95 // If height of header is changed in CSS then change it here also
+    const HEADER_HEIGHT = 2.25 // If height of header is changed in CSS then change it here also
     const FOOTER_HEIGHT = 1.5 // If height of footer is changed in CSS then change it here also
 
     if (renderFooter) height += FOOTER_HEIGHT
@@ -308,20 +308,25 @@ function CodeEditor({
                 />
                 {footer && (
                     <div className={Classes.bottom}>
-                        <EditorBtn
-                            active={displayOptions}
-                            setRef={languageSelectorRef}
-                            onClick={setDisplayHandler}
-                            name={
-                                SUPPORTED_LANGUAGES[currentLanguage].displayName
-                            }
-                            options
-                        />
-                        <EditorBtn
-                            active={false}
-                            onClick={setEditableHandler}
-                            name={`Edit: ${editable}`}
-                        />
+                        {!readOnly && (
+                            <Fragment>
+                                <EditorBtn
+                                    active={displayOptions}
+                                    setRef={languageSelectorRef}
+                                    onClick={setDisplayHandler}
+                                    name={
+                                        SUPPORTED_LANGUAGES[currentLanguage]
+                                            .displayName
+                                    }
+                                    options
+                                />
+                                <EditorBtn
+                                    active={false}
+                                    onClick={setEditableHandler}
+                                    name={`Edit: ${editable}`}
+                                />
+                            </Fragment>
+                        )}
                     </div>
                 )}
             </div>

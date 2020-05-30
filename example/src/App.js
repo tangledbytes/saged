@@ -7,7 +7,7 @@ const App = () => {
     return (
         <div className='container'>
             <div className='editor'>
-                <Editor />
+                <Editor content={localStorage.getItem('article')} readonly />
             </div>
         </div>
     )

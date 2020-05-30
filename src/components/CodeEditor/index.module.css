@@ -9,13 +9,13 @@
 }
 
 .head {
-    height: 1.95rem;
+    height: 2.25rem;
     background-color: rgb(32, 33, 36);
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+    border-radius: 0.3rem 0.3rem 0 0;
+    padding: 0 0.5rem;
 }
 
 .cbtns {
@@ -30,7 +30,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    border-radius: 0 0 0.5rem 0.5rem;
+    border-radius: 0 0 0.3rem 0.3rem;
     padding: 0.25rem 0.5rem;
     height: 1.5rem;
 }
