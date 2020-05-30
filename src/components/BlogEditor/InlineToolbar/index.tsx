@@ -112,8 +112,6 @@ function InlineToolbar({
 }: ToolbarConfig) {
     const [position, setPostion] = useState(initialPosition)
 
-    console.log(editorPosition)
-
     useEffect(() => {
         const selectionState = editor.getSelection()
 

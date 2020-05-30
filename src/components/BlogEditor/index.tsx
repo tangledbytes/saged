@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react'
-import CodeEditorWrapper from './CodeEditorWrapper'
+import AtomicBlockWrapper from './AtomicBlockWrapper'
 import Classes from './index.module.css'
 
 import {
@@ -153,7 +153,7 @@ function BlogEditor({ readonly, content, className }: IBlogEditor) {
         const type = block.getType()
         if (type === 'atomic') {
             return {
-                component: CodeEditorWrapper,
+                component: AtomicBlockWrapper,
                 editable: false,
                 props: {
                     language: 'javascript',
@@ -192,15 +192,17 @@ function BlogEditor({ readonly, content, className }: IBlogEditor) {
      * draft taking control over the input on code editor!
      * @param blockType
      */
-    const toggleBlockType = (blockType: string) => {
+    const toggleBlockType = (blockType: string, subType?: string) => {
         if (blockType !== 'atomic')
             setState(RichUtils.toggleBlockType(state, blockType))
         else {
-            // Add Monaco editor to the current state
+            // Add atomic to the current state
+            console.log('SUBTYPE:', subType)
             const contentState = state.getCurrentContent()
             const contentStateWithEntity = contentState.createEntity(
-                'MONACO',
-                'IMMUTABLE'
+                'ATOMIC',
+                'IMMUTABLE',
+                { type: subType }
             )
             const entityKey = contentStateWithEntity.getLastCreatedEntityKey()
             const newEditorState = EditorState.set(state, {
@@ -213,21 +215,21 @@ function BlogEditor({ readonly, content, className }: IBlogEditor) {
             )
             setState(newState)
 
-            // Get a reference to monaco instance
+            // Get a reference to atomic instance
             const newContentState = newState.getCurrentContent()
             const draftKey = newContentState.getLastBlock().getKey()
-            const monacoKey = newContentState.getKeyBefore(draftKey)
+            const atomicKey = newContentState.getKeyBefore(draftKey)
 
-            // Get the monaco node
+            // Get the atomic node
             // This is done asynchronously because
             // There is usually a delay between block rendering by
             // Draft js
             setTimeout(() => {
-                const monaocoParent = getNodeFromKey(monacoKey)
+                const atomicParent = getNodeFromKey(atomicKey)
 
-                const divReferenceToMonacoParent = monaocoParent as HTMLDivElement
+                const divReferenceToAtomicParent = atomicParent as HTMLDivElement
 
-                divReferenceToMonacoParent.contentEditable = 'false'
+                divReferenceToAtomicParent.contentEditable = 'false'
             }, 0)
         }
     }

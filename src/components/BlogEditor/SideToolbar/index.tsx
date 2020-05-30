@@ -14,27 +14,34 @@ import { getNodeFromKey } from '../utility'
 export interface ToolbarConfig {
     editor: any
     editorRef: any
-    toggleBlockStyle?: (blockType: string) => void
+    toggleBlockStyle?: (blockType: string, subType?: string) => void
     offSetLeft?: number
     offSetTop?: number
     children?: any
 }
 
 interface IStyleButton {
-    onToggle: (style: string) => void
+    onToggle: (style: string, subType?: string) => void
     active: boolean
     style: string
     label: JSX.Element
+    subType?: string
 }
 
 // ==================================== HELPER COMPONENT ========================
 
-const StyleButton = ({ onToggle, active, style, label }: IStyleButton) => {
+const StyleButton = ({
+    onToggle,
+    active,
+    style,
+    label,
+    subType
+}: IStyleButton) => {
     const onToggleHandler = (
         e: React.MouseEvent<HTMLSpanElement, MouseEvent>
     ) => {
         e.preventDefault()
-        onToggle(style)
+        onToggle(style, subType)
     }
 
     let className = Classes.styleButton
@@ -61,7 +68,16 @@ const BLOCK_TYPES = [
         label: <img className={Classes.icon} src={Ol} />,
         style: 'ordered-list-item'
     },
-    { label: <img className={Classes.icon} src={Code} />, style: 'atomic' }
+    {
+        label: <img className={Classes.icon} src={Code} />,
+        style: 'atomic',
+        subType: 'monaco'
+    },
+    {
+        label: <div className={Classes.icon}>MD</div>,
+        style: 'atomic',
+        subType: 'markdown'
+    }
 ]
 
 const BlockStyleControls = (props: any) => {
@@ -81,6 +97,7 @@ const BlockStyleControls = (props: any) => {
                     label={type.label}
                     onToggle={props.onToggle}
                     style={type.style}
+                    subType={type.subType}
                 />
             ))}
         </div>
@@ -151,8 +168,9 @@ function SideToolbar({
             >
                 <BlockStyleControls
                     editorState={editor}
-                    onToggle={(blockStyle: string) => {
-                        toggleBlockStyle && toggleBlockStyle(blockStyle)
+                    onToggle={(blockStyle: string, subType?: string) => {
+                        toggleBlockStyle &&
+                            toggleBlockStyle(blockStyle, subType)
                         setShow(false)
                     }}
                 />
