@@ -1,57 +1,95 @@
-import React, { useRef, useEffect, useState } from 'react'
-import marked from 'marked'
-import Classes from './index.module.css'
+import React, { useRef, useState, useEffect } from 'react'
+import MarkdownEditor from '../../MarkdownEditor'
 
-let editorIsFocused = false
-let editorIsActive = false
+export interface IMarkdownEditorWrapper {
+    blockProps: {
+        readonly: boolean
+        content: string
+        setEditorIsUp: (state: boolean) => void
+        onFinishEdit: (contentState: any) => void
+    }
+    block: any
+    contentState: any
+}
 
-function MarkdownEditorWrapper({
-    content,
-    setEditorIsUp
-}: {
-    content: string
-    setEditorIsUp: (state: boolean) => any
-}) {
-    const [value, setValue] = useState<string>(content)
-    const ref = useRef<HTMLDivElement>(null)
+function MarkdownEditorWrapper(props: IMarkdownEditorWrapper) {
+    const { blockProps, block, contentState } = props
+    const [init, setInit] = useState({
+        content: ''
+    })
 
+    const editorIsFocused = useRef<boolean>(false)
+    const editorIsActive = useRef<boolean>(false)
+
+    // Had to hold a reference to the latest value of contentstate
+    // as for some reason the callback functions were getting stale
+    // value of the this prop
+    const contentStateRef = useRef<any>(contentState)
+    contentStateRef.current = contentState
+
+    // This sets the initial code while also making sure
+    // that no "code" prop of the Editor is not
+    // directly associated with a wrapper prop
+    // Hence it avoids rerenders on each click
     useEffect(() => {
-        if (ref.current) ref.current.innerHTML = marked(value)
+        const entityKey = block.getEntityAt(0)
+        console.log(entityKey)
+        if (entityKey) {
+            const data = contentState.getEntity(entityKey)?.getData()
+            console.log('[DATA]:', data)
+            const newState = {
+                content: data.content
+            }
+            setInit(newState)
+        }
+
+        // eslint-disable-next-line
     }, [])
 
     function updateEditorState() {
-        if (editorIsFocused && editorIsActive) setEditorIsUp(true)
-        else setEditorIsUp(false)
+        if (editorIsFocused.current) blockProps.setEditorIsUp(true)
+        else if (!editorIsFocused.current) blockProps.setEditorIsUp(false)
     }
 
     return (
-        <div
-            contentEditable
-            ref={ref}
-            className={Classes.md}
+        <MarkdownEditor
+            content={init.content}
+            readonly={blockProps.readonly}
             onFocus={() => {
                 console.log('FOCUSED')
-                editorIsFocused = true
-                if (ref.current) ref.current.innerHTML = value
+                editorIsFocused.current = true
                 updateEditorState()
             }}
             onBlur={() => {
                 console.log('BLURRED')
-                editorIsFocused = false
-                if (ref.current) ref.current.innerHTML = marked(value)
+                editorIsFocused.current = false
                 updateEditorState()
             }}
             onMouseEnter={() => {
-                editorIsActive = true
+                editorIsActive.current = true
                 console.log('WOHOOO')
                 updateEditorState()
             }}
             onMouseLeave={() => {
                 console.log('BYEEE')
-                editorIsActive = false
+                editorIsActive.current = false
                 updateEditorState()
             }}
-            onInput={() => setValue(ref.current?.innerText || '')}
+            onChange={(content) => {
+                const entityKey = block.getEntityAt(0)
+                console.log(entityKey)
+                const contentState = contentStateRef.current
+                if (entityKey) {
+                    console.log(content)
+                    const newContentState = contentState.mergeEntityData(
+                        entityKey,
+                        {
+                            content: content
+                        }
+                    )
+                    blockProps.onFinishEdit(newContentState)
+                } else console.log('OOPS MARKDOWN')
+            }}
         />
     )
 }

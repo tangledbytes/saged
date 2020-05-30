@@ -7,6 +7,7 @@ export interface ICodeEditorWrapper {
     blockProps: {
         language: string
         height: string
+        readonly: boolean
         setEditorIsUp: (state: boolean) => void
         onFinishEdit: (contentState: any) => void
     }
@@ -89,6 +90,7 @@ const CodeEditorWrapper = (props: ICodeEditorWrapper) => {
             onFocus={memoizedOnFocus}
             language={init.language}
             height={blockProps.height}
+            readOnly={blockProps.readonly}
         />
     )
 }

@@ -33,6 +33,7 @@ import Button from '../Button'
 export interface IBlogEditor {
     readonly?: boolean
     content?: string
+    storageKey?: string
     className?: string
 }
 
@@ -97,15 +98,23 @@ const deserializeToContentState = (content: string) => {
  * to initialize the state
  * @param content
  */
-const initializeEditorState = (content?: string) => {
+const initializeEditorState = ({
+    content,
+    readonly,
+    storageKey
+}: {
+    content?: string
+    readonly?: boolean
+    storageKey: string
+}) => {
     // If some content was passed in that initialize state from that
     if (content) {
         return EditorState.createWithContent(deserializeToContentState(content))
     }
 
     // If no content was provided then look for older saved value
-    const oldContent = retrieveFromLocalStorage({ key: 'article' })
-    if (oldContent) {
+    const oldContent = retrieveFromLocalStorage({ key: storageKey })
+    if (oldContent && !readonly) {
         return EditorState.createWithContent(
             deserializeToContentState(oldContent)
         )
@@ -118,11 +127,18 @@ const initializeEditorState = (content?: string) => {
 
 // =====================================================================================================
 
-function BlogEditor({ readonly, content, className }: IBlogEditor) {
+function BlogEditor({
+    readonly,
+    content,
+    className,
+    storageKey = 'article'
+}: IBlogEditor) {
     /**
      * Stores the state of the editor
      */
-    const [state, setState] = useState(initializeEditorState(content))
+    const [state, setState] = useState(
+        initializeEditorState({ content, storageKey, readonly })
+    )
 
     /**
      * Stores the state if the code editor is active or not
@@ -142,7 +158,10 @@ function BlogEditor({ readonly, content, className }: IBlogEditor) {
      */
     const saveToStorageFn = useCallback(() => {
         const content = state.getCurrentContent()
-        saveToLocalStorage({ content: serializeContentState(content) })
+        saveToLocalStorage({
+            content: serializeContentState(content),
+            key: storageKey
+        })
     }, [state])
 
     /**
@@ -158,6 +177,7 @@ function BlogEditor({ readonly, content, className }: IBlogEditor) {
                 props: {
                     language: 'javascript',
                     height: '20rem',
+                    readonly,
                     setEditorIsUp,
                     onFinishEdit: (newContentState: any) => {
                         setState(EditorState.createWithContent(newContentState))

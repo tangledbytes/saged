@@ -1,0 +1,53 @@
+.md {
+    font-size: 1.2rem;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    color: #24292e;
+}
+
+.md h1, .md h2 {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eaecef;
+}
+
+.md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
+    margin: 0.5rem 0;
+}
+
+.md p {
+    line-height: 1.5;
+}
+
+.md table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.md tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
+}
+
+.md th, .md td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+    font-weight: 500;
+}
+
+.md td {
+    font-weight: normal;
+}
+
+.md tr:nth-child(even) {
+    background-color: #f6f8fa;
+}
+
+.md blockquote {
+    margin: 0;
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+}
+
+.md img, .md iframe {
+    max-width: 100%;
+}
