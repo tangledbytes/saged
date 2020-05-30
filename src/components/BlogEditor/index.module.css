@@ -23,39 +23,37 @@
 .editorH1 {
     font-size: 2.4rem;
     font-weight: 500;
-    /* margin: 0.2rem 0; */
+    margin: 0.4rem 0;
 }
 
 .editorH2 {
     font-size: 1.8rem;
     font-weight: 500;
-    /* margin: 0.2rem 0; */
+    margin: 0.4rem 0;
 }
 
 .editorText {
     font-size: 1.21rem;
-    /* margin: 0.2rem 0; */
+    margin: 0.4rem 0;
 }
 
 .editorBlockquote {
     font-size: 1.22rem;
-    margin: 0 0 1.5rem;
+    margin: 0.4rem 0;
     padding: 0.5rem 1.5rem;
     border-left: 3px solid #3eb0ef;
 }
 
-.editorUL,
-.editorOL {
+.editorUL, .editorOL {
     font-size: 1.21rem;
-    /* margin: 0.2rem 0; */
+    margin: 0.4rem 0;
 }
 
 .editorAtomic {
     margin: 0.2rem 0;
 }
 
-.editor *:first-child,
-.editor *:first-child {
+.editor *:first-child, .editor *:first-child {
     margin-top: 0;
 }
 

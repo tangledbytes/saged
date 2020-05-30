@@ -217,7 +217,6 @@ function BlogEditor({
             setState(RichUtils.toggleBlockType(state, blockType))
         else {
             // Add atomic to the current state
-            console.log('SUBTYPE:', subType)
             const contentState = state.getCurrentContent()
             const contentStateWithEntity = contentState.createEntity(
                 'ATOMIC',
@@ -248,8 +247,8 @@ function BlogEditor({
                 const atomicParent = getNodeFromKey(atomicKey)
 
                 const divReferenceToAtomicParent = atomicParent as HTMLDivElement
-
-                divReferenceToAtomicParent.contentEditable = 'false'
+                if (divReferenceToAtomicParent)
+                    divReferenceToAtomicParent.contentEditable = 'false'
             }, 0)
         }
     }

@@ -26,8 +26,8 @@ function MarkdownEditorWrapper({
     const ref = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        setValue(content)
-        if (ref.current) ref.current.innerHTML = marked(content)
+        setValue(content || '')
+        if (ref.current) ref.current.innerHTML = marked(content || '')
     }, [content])
 
     function focusHandler(e: React.FocusEvent<HTMLDivElement>) {

@@ -33,10 +33,8 @@ function MarkdownEditorWrapper(props: IMarkdownEditorWrapper) {
     // Hence it avoids rerenders on each click
     useEffect(() => {
         const entityKey = block.getEntityAt(0)
-        console.log(entityKey)
         if (entityKey) {
             const data = contentState.getEntity(entityKey)?.getData()
-            console.log('[DATA]:', data)
             const newState = {
                 content: data.content
             }
@@ -56,22 +54,18 @@ function MarkdownEditorWrapper(props: IMarkdownEditorWrapper) {
             content={init.content}
             readonly={blockProps.readonly}
             onFocus={() => {
-                console.log('FOCUSED')
                 editorIsFocused.current = true
                 updateEditorState()
             }}
             onBlur={() => {
-                console.log('BLURRED')
                 editorIsFocused.current = false
                 updateEditorState()
             }}
             onMouseEnter={() => {
                 editorIsActive.current = true
-                console.log('WOHOOO')
                 updateEditorState()
             }}
             onMouseLeave={() => {
-                console.log('BYEEE')
                 editorIsActive.current = false
                 updateEditorState()
             }}
