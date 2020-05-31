@@ -8,25 +8,25 @@ const content = JSON.stringify(data)
 
 const Switch = (path) => {
     switch (path) {
-        case '/saged':
+        case '/saged/':
             return (
                 <div className='editor'>
                     <Editor content={content} />
                 </div>
             )
-        case '/saged/preview':
+        case '/saged/preview/':
             return (
                 <div className='editor'>
                     <Editor content={content} readonly />
                 </div>
             )
-        case '/saged/editor':
+        case '/saged/editor/':
             return (
                 <div className='editor'>
                     <Editor />
                 </div>
             )
-        case '/saged/editor/preview':
+        case '/saged/editor/preview/':
             return (
                 <div className='editor'>
                     <Editor content={localStorage.getItem('item')} readonly />
