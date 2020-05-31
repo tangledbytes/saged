@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import marked from 'marked'
+import DomPurify from 'dompurify'
 import Classes from './index.module.css'
 
 export interface IMarkdownEditor {
@@ -27,7 +28,8 @@ function MarkdownEditorWrapper({
 
     useEffect(() => {
         setValue(content || '')
-        if (ref.current) ref.current.innerHTML = marked(content || '')
+        if (ref.current)
+            ref.current.innerHTML = DomPurify.sanitize(marked(content || ''))
     }, [content])
 
     function focusHandler(e: React.FocusEvent<HTMLDivElement>) {
@@ -36,7 +38,8 @@ function MarkdownEditorWrapper({
     }
 
     function blurHandler(e: React.FocusEvent<HTMLDivElement>) {
-        if (ref.current) ref.current.innerHTML = marked(value)
+        if (ref.current)
+            ref.current.innerHTML = DomPurify.sanitize(marked(value))
         if (onBlur) onBlur(e)
     }
 

@@ -27,6 +27,7 @@
         "react": "^16.0.0"
     },
     "devDependencies": {
+        "@types/dompurify": "^2.0.2",
         "@types/draft-js": "^0.10.40",
         "@types/jest": "^25.1.4",
         "@types/marked": "^0.7.4",
@@ -58,6 +59,7 @@
     ],
     "dependencies": {
         "@monaco-editor/react": "^3.3.0",
+        "dompurify": "^2.0.11",
         "draft-js": "^0.11.5",
         "marked": "^1.1.0"
     }
