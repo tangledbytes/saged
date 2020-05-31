@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/saged/static/css/main.929e71dc.chunk.css",
+    "main.js": "/saged/static/js/main.dc6bc959.chunk.js",
+    "main.js.map": "/saged/static/js/main.dc6bc959.chunk.js.map",
+    "runtime-main.js": "/saged/static/js/runtime-main.f38dc430.js",
+    "runtime-main.js.map": "/saged/static/js/runtime-main.f38dc430.js.map",
+    "static/css/2.ae87030c.chunk.css": "/saged/static/css/2.ae87030c.chunk.css",
+    "static/js/2.8534307d.chunk.js": "/saged/static/js/2.8534307d.chunk.js",
+    "static/js/2.8534307d.chunk.js.map": "/saged/static/js/2.8534307d.chunk.js.map",
+    "index.html": "/saged/index.html",
+    "precache-manifest.ad30c44d6e5ed366030300709b456190.js": "/saged/precache-manifest.ad30c44d6e5ed366030300709b456190.js",
+    "service-worker.js": "/saged/service-worker.js",
+    "static/css/2.ae87030c.chunk.css.map": "/saged/static/css/2.ae87030c.chunk.css.map",
+    "static/css/main.929e71dc.chunk.css.map": "/saged/static/css/main.929e71dc.chunk.css.map",
+    "static/js/2.8534307d.chunk.js.LICENSE.txt": "/saged/static/js/2.8534307d.chunk.js.LICENSE.txt",
+    "static/js/main.dc6bc959.chunk.js.LICENSE.txt": "/saged/static/js/main.dc6bc959.chunk.js.LICENSE.txt",
+    "static/media/blockquote~KUbmhmdU.svg": "/saged/static/media/blockquote~KUbmhmdU.02705ada.svg",
+    "static/media/bold~smduNppc.svg": "/saged/static/media/bold~smduNppc.1396e979.svg",
+    "static/media/code~bnLStfXP.svg": "/saged/static/media/code~bnLStfXP.239fded4.svg",
+    "static/media/heading~QOqIzRab.svg": "/saged/static/media/heading~QOqIzRab.0d1155f5.svg",
+    "static/media/italic~bkFUWxpm.svg": "/saged/static/media/italic~bkFUWxpm.d72dac67.svg",
+    "static/media/markdown~lbIWfMVw.svg": "/saged/static/media/markdown~lbIWfMVw.91b80a13.svg",
+    "static/media/orderedlist~GrRCmwBQ.svg": "/saged/static/media/orderedlist~GrRCmwBQ.e9866d99.svg",
+    "static/media/plus~YOwKNLmC.svg": "/saged/static/media/plus~YOwKNLmC.c6e2430b.svg",
+    "static/media/subheading~GoYdSCEx.svg": "/saged/static/media/subheading~GoYdSCEx.1b1e8de6.svg",
+    "static/media/underline~dQaKFara.svg": "/saged/static/media/underline~dQaKFara.e281fa6a.svg",
+    "static/media/unorderedlist~bfbrgOYJ.svg": "/saged/static/media/unorderedlist~bfbrgOYJ.e797468f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f38dc430.js",
+    "static/css/2.ae87030c.chunk.css",
+    "static/js/2.8534307d.chunk.js",
+    "static/css/main.929e71dc.chunk.css",
+    "static/js/main.dc6bc959.chunk.js"
+  ]
+}
