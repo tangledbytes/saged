@@ -7,6 +7,7 @@ import Bq from '../../../assets/blockquote.svg'
 import Ul from '../../../assets/unorderedlist.svg'
 import Ol from '../../../assets/orderedlist.svg'
 import Code from '../../../assets/code.svg'
+import Md from '../../../assets/markdown.svg'
 import { getNodeFromKey } from '../utility'
 
 // ==================================== INTERFACE ===============================
@@ -74,7 +75,7 @@ const BLOCK_TYPES = [
         subType: 'monaco'
     },
     {
-        label: <div className={Classes.icon}>MD</div>,
+        label: <img className={Classes.icon} src={Md} />,
         style: 'atomic',
         subType: 'markdown'
     }
