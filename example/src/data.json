@@ -1,0 +1,229 @@
+{
+    "blocks": [
+        {
+            "key": "b29vn",
+            "text": "React Hooks and its mates",
+            "type": "header-one",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "eqs2m",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "1lj3l",
+            "text": "React hooks has quickly became industry demands. Now I am going to define some of the advantages of using react hooks. The following are the advantages of using react hooks.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "7r40b",
+            "text": "Hooks are highly re-usable.",
+            "type": "ordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "74l1g",
+            "text": "They produce far better code.",
+            "type": "ordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "5koh4",
+            "text": "Code is easily maintainable.",
+            "type": "ordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "ana2",
+            "text": "Hooks enforces good developer practices.",
+            "type": "ordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "7tgh0",
+            "text": "I love hooks!",
+            "type": "ordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "407k2",
+            "text": "Now we are essentially ready to see some react hooks code on the editor (which uses hooks) which uses an editor which in itself uses react hooks! Inception! Lol 😂",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "f5lq3",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "9tll9",
+            "text": " ",
+            "type": "atomic",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [
+                {
+                    "offset": 0,
+                    "length": 1,
+                    "key": 0
+                }
+            ],
+            "data": {}
+        },
+        {
+            "key": "e75kv",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "aspn9",
+            "text": "As an advantage, we can even define our own react hooks! Ain't that cool? Indeed it is! 🤩",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "cjq8o",
+            "text": "Now let's test some markdown shall we? Okay the first test definitely failed. ",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "d86il",
+            "text": "Doing a second test now",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "5as3q",
+            "text": " ",
+            "type": "atomic",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [
+                {
+                    "offset": 0,
+                    "length": 1,
+                    "key": 1
+                }
+            ],
+            "data": {}
+        },
+        {
+            "key": "bb4lg",
+            "text": "Random blah blah stuff",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "a9ou0",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "f9ed2",
+            "text": " ",
+            "type": "atomic",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [
+                {
+                    "offset": 0,
+                    "length": 1,
+                    "key": 2
+                }
+            ],
+            "data": {}
+        },
+        {
+            "key": "3r047",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        }
+    ],
+    "entityMap": {
+        "0": {
+            "type": "ATOMIC",
+            "mutability": "IMMUTABLE",
+            "data": {
+                "type": "monaco",
+                "content": "import React, { useState } from 'react'\n\nexport default function App() {\n    // useState is a react hook\n    // There are many other react hooks like\n    // 1. useEffect\n    // 2. useCallback\n    // 3. useRef and many more!\n    const [state, setState] = useState(\"\")\n    return (\n        <div>\n            Super Cool stuff in here\n        </div>\n    )\n}",
+                "language": "javascript"
+            }
+        },
+        "1": {
+            "type": "ATOMIC",
+            "mutability": "IMMUTABLE",
+            "data": {
+                "type": "markdown",
+                "content": "Some random markdown in here"
+            }
+        },
+        "2": {
+            "type": "ATOMIC",
+            "mutability": "IMMUTABLE",
+            "data": {
+                "type": "markdown",
+                "content": "**TABLE**  \n\n\n\n| Tables   |      Are      |  Cool |\n|----------|:-------------:|------:|\n| col 1 is |  left-aligned | $1600 |\n| col 2 is |    centred   |   $12 |\n| col 3 is | right-aligned |    $1 |"
+            }
+        }
+    }
+}
