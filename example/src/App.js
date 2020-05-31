@@ -7,26 +7,26 @@ import data from './data.json'
 const content = JSON.stringify(data)
 
 const Switch = (path) => {
-    switch (path) {
-        case '/saged/':
+    switch (true) {
+        case path === '/saged/':
             return (
                 <div className='editor'>
                     <Editor content={content} />
                 </div>
             )
-        case '/saged/preview/':
+        case path === '/saged/#preview':
             return (
                 <div className='editor'>
                     <Editor content={content} readonly />
                 </div>
             )
-        case '/saged/editor/':
+        case path === '/saged/#editor':
             return (
                 <div className='editor'>
                     <Editor />
                 </div>
             )
-        case '/saged/editor/preview/':
+        case path === '/saged/#editor/preview':
             return (
                 <div className='editor'>
                     <Editor content={localStorage.getItem('item')} readonly />
@@ -43,7 +43,8 @@ const Switch = (path) => {
 }
 
 const App = () => {
-    const location = window.location.pathname
+    const location = window.location.pathname + window.location.hash
+    console.log(window.location)
     return (
         <div className='container'>
             {Switch(location)}
@@ -54,7 +55,7 @@ const App = () => {
                     </a>
                 </div>
                 <div>
-                    <a href='/saged/preview' className='btn'>
+                    <a href='/saged/#preview' className='btn'>
                         Preview
                     </a>
                 </div>
