@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5531b583d1ffaca77f4e40166ab1a965",
+    "revision": "5c1e7fc69f10386742c86103331f121e",
     "url": "/saged/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/saged/static/css/2.ae87030c.chunk.css"
   },
   {
-    "revision": "5fdd493832f50b7c506e",
+    "revision": "e70ab784db2ad536bc45",
     "url": "/saged/static/css/main.929e71dc.chunk.css"
   },
   {
@@ -20,12 +20,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/saged/static/js/2.8534307d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5fdd493832f50b7c506e",
-    "url": "/saged/static/js/main.dc6bc959.chunk.js"
+    "revision": "e70ab784db2ad536bc45",
+    "url": "/saged/static/js/main.b7c65b68.chunk.js"
   },
   {
     "revision": "0512cf1466087f5c44c5c61e4b32a001",
-    "url": "/saged/static/js/main.dc6bc959.chunk.js.LICENSE.txt"
+    "url": "/saged/static/js/main.b7c65b68.chunk.js.LICENSE.txt"
   },
   {
     "revision": "7146da1fdddec66590a8",
