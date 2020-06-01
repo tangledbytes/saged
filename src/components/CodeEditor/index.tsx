@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, Fragment } from 'react'
 import Manoco from '@monaco-editor/react'
 import { SUPPORTED_LANGUAGES } from './supportedLanguages'
+import ModResizeObserver from '../../utility/ModResizeObserver'
 
 import Classes from './index.module.css'
 
@@ -237,6 +238,7 @@ function CodeEditor({
 
     const ref = useRef<any>(null)
     const currentLanguageRef = useRef<string>(currentLanguage)
+    const containerRef = useRef<HTMLDivElement>(null)
     const languageSelectorRef = useRef<HTMLDivElement>(null)
 
     const setEditableHandler = () => setEditable(!editable)
@@ -248,7 +250,6 @@ function CodeEditor({
 
     const handleMount = (_valueGetter: any, editor: any) => {
         ref.current = editor
-
         ref.current.onDidBlurEditorText((ev: any) => {
             if (onBlur) onBlur(ev)
         })
@@ -283,8 +284,26 @@ function CodeEditor({
         setCurrentLanguageHandler(language)
     }, [language])
 
+    useEffect(() => {
+        if (containerRef.current) {
+            const observer = new ModResizeObserver(() => {
+                console.log('Observing editor...')
+                ref.current && ref.current.layout()
+            })
+
+            observer.observe(containerRef.current)
+
+            return () => {
+                containerRef.current && observer.unobserve(containerRef.current)
+                console.log('Unobserve the editor...')
+            }
+        }
+
+        return () => undefined
+    }, [])
+
     return (
-        <div className={className} style={{ height }}>
+        <div className={className} style={{ height }} ref={containerRef}>
             <div className={Classes.editor}>
                 {displayOptions && (
                     <div className={Classes.option}>
