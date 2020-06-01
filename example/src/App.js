@@ -3,6 +3,7 @@ import './index.css'
 import Editor from 'saged'
 import 'saged/dist/index.css'
 import data from './data.json'
+import useLocation from './useLocation'
 
 const content = JSON.stringify(data)
 
@@ -43,21 +44,30 @@ const Switch = (path) => {
 }
 
 const App = () => {
-    const location = window.location.pathname + window.location.hash
-    console.log(window.location)
+    // const location = window.location.pathname + window.location.hash
+    const [location, setLocation] = useLocation(
+        window.location.pathname + window.location.hash
+    )
+
     return (
         <div className='container'>
             {Switch(location)}
             <div className='btn-container'>
-                <div>
-                    <a href='/saged' className='btn'>
-                        Editor
-                    </a>
+                <div
+                    className='btn'
+                    onClick={() => {
+                        setLocation('/saged/')
+                    }}
+                >
+                    Editor
                 </div>
-                <div>
-                    <a href='/saged/#preview' className='btn'>
-                        Preview
-                    </a>
+                <div
+                    className='btn'
+                    onClick={() => {
+                        setLocation('#preview')
+                    }}
+                >
+                    Preview
                 </div>
             </div>
         </div>
