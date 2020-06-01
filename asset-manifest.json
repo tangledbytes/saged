@@ -1,20 +1,19 @@
 {
   "files": {
-    "main.css": "/saged/static/css/main.5aca0495.chunk.css",
-    "main.js": "/saged/static/js/main.993e9a0f.chunk.js",
-    "main.js.map": "/saged/static/js/main.993e9a0f.chunk.js.map",
+    "main.css": "/saged/static/css/main.3d6dc74a.chunk.css",
+    "main.js": "/saged/static/js/main.66971e14.chunk.js",
+    "main.js.map": "/saged/static/js/main.66971e14.chunk.js.map",
     "runtime-main.js": "/saged/static/js/runtime-main.f38dc430.js",
     "runtime-main.js.map": "/saged/static/js/runtime-main.f38dc430.js.map",
     "static/css/2.ae87030c.chunk.css": "/saged/static/css/2.ae87030c.chunk.css",
-    "static/js/2.e33d580d.chunk.js": "/saged/static/js/2.e33d580d.chunk.js",
-    "static/js/2.e33d580d.chunk.js.map": "/saged/static/js/2.e33d580d.chunk.js.map",
+    "static/js/2.ee355c0f.chunk.js": "/saged/static/js/2.ee355c0f.chunk.js",
+    "static/js/2.ee355c0f.chunk.js.map": "/saged/static/js/2.ee355c0f.chunk.js.map",
     "index.html": "/saged/index.html",
-    "precache-manifest.7894d20bf57da9791698ce34fc482d72.js": "/saged/precache-manifest.7894d20bf57da9791698ce34fc482d72.js",
+    "precache-manifest.a1b7833fc8b5474bb028e164370e932d.js": "/saged/precache-manifest.a1b7833fc8b5474bb028e164370e932d.js",
     "service-worker.js": "/saged/service-worker.js",
     "static/css/2.ae87030c.chunk.css.map": "/saged/static/css/2.ae87030c.chunk.css.map",
-    "static/css/main.5aca0495.chunk.css.map": "/saged/static/css/main.5aca0495.chunk.css.map",
-    "static/js/2.e33d580d.chunk.js.LICENSE.txt": "/saged/static/js/2.e33d580d.chunk.js.LICENSE.txt",
-    "static/js/main.993e9a0f.chunk.js.LICENSE.txt": "/saged/static/js/main.993e9a0f.chunk.js.LICENSE.txt",
+    "static/css/main.3d6dc74a.chunk.css.map": "/saged/static/css/main.3d6dc74a.chunk.css.map",
+    "static/js/2.ee355c0f.chunk.js.LICENSE.txt": "/saged/static/js/2.ee355c0f.chunk.js.LICENSE.txt",
     "static/media/blockquote~KUbmhmdU.svg": "/saged/static/media/blockquote~KUbmhmdU.02705ada.svg",
     "static/media/bold~smduNppc.svg": "/saged/static/media/bold~smduNppc.1396e979.svg",
     "static/media/code~bnLStfXP.svg": "/saged/static/media/code~bnLStfXP.239fded4.svg",
@@ -30,8 +29,8 @@
   "entrypoints": [
     "static/js/runtime-main.f38dc430.js",
     "static/css/2.ae87030c.chunk.css",
-    "static/js/2.e33d580d.chunk.js",
-    "static/css/main.5aca0495.chunk.css",
-    "static/js/main.993e9a0f.chunk.js"
+    "static/js/2.ee355c0f.chunk.js",
+    "static/css/main.3d6dc74a.chunk.css",
+    "static/js/main.66971e14.chunk.js"
   ]
 }
