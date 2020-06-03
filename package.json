@@ -1,9 +1,9 @@
 {
     "name": "saged",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Saged is the editor used on blog.sagacious.dev site. It embeds draftjs and monaco right out of the box.",
     "author": "utkarsh-pro",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "repository": "utkarsh-pro/saged",
     "main": "dist/index.js",
     "module": "dist/index.modern.js",
