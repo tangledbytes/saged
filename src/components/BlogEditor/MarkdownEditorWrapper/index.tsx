@@ -19,7 +19,6 @@ function MarkdownEditorWrapper(props: IMarkdownEditorWrapper) {
     })
 
     const editorIsFocused = useRef<boolean>(false)
-    const editorIsActive = useRef<boolean>(false)
 
     // Had to hold a reference to the latest value of contentstate
     // as for some reason the callback functions were getting stale
@@ -61,20 +60,10 @@ function MarkdownEditorWrapper(props: IMarkdownEditorWrapper) {
                 editorIsFocused.current = false
                 updateEditorState()
             }}
-            onMouseEnter={() => {
-                editorIsActive.current = true
-                updateEditorState()
-            }}
-            onMouseLeave={() => {
-                editorIsActive.current = false
-                updateEditorState()
-            }}
             onChange={(content) => {
                 const entityKey = block.getEntityAt(0)
-                console.log(entityKey)
                 const contentState = contentStateRef.current
                 if (entityKey) {
-                    console.log(content)
                     const newContentState = contentState.mergeEntityData(
                         entityKey,
                         {
