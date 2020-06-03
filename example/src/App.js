@@ -24,13 +24,18 @@ const Switch = (path) => {
         case path === '/saged/#editor':
             return (
                 <div className='editor'>
-                    <Editor />
+                    <Editor storageKey='saged-example-item-eerTy443' />
                 </div>
             )
         case path === '/saged/#editor/preview':
             return (
                 <div className='editor'>
-                    <Editor content={localStorage.getItem('item')} readonly />
+                    <Editor
+                        content={localStorage.getItem(
+                            'saged-example-item-eerTy443'
+                        )}
+                        readonly
+                    />
                 </div>
             )
 
