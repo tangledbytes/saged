@@ -1,4 +1,18 @@
 export type ModResizeObserverCb = (element?: Element) => any
+/**
+ * DOMRectReadOnlyMod is the modified version of DOMRectReadOnly
+ * interface as in it omits the toJSON method of the function
+ */
+export interface DOMRectReadOnlyMod {
+    height: number
+    width: number
+    top: number
+    left: number
+    bottom: number
+    right: number
+    x: number
+    y: number
+}
 
 /**
  * _ResizeObserver is a polling based resize observer
@@ -8,7 +22,7 @@ export type ModResizeObserverCb = (element?: Element) => any
  */
 class _ResizeObserver {
     private _element: Element | null = null
-    private _cachedProperty: DOMRectReadOnly | null = null
+    private _cachedProperty: DOMRectReadOnlyMod | null = null
     private _interval: NodeJS.Timeout | null = null
 
     // eslint-disable-next-line no-useless-constructor
@@ -35,9 +49,25 @@ class _ResizeObserver {
     }
 
     private _isDifferent(property: DOMRectReadOnly): boolean {
-        if (this._cachedProperty) {
-            const cachedProperty = { ...this._cachedProperty }
-            this._cachedProperty = property
+        const cachedProperty = this._cachedProperty && {
+            ...this._cachedProperty
+        }
+
+        // Copied all the properties explicitly
+        // as it was difficult to copy the DOMRectReadOnly
+        // class instance
+        this._cachedProperty = {
+            height: property.height,
+            width: property.width,
+            top: property.top,
+            left: property.left,
+            bottom: property.bottom,
+            right: property.right,
+            x: property.x,
+            y: property.y
+        }
+
+        if (cachedProperty) {
             // If height or width is changed then return true
             return (
                 cachedProperty.height !== property.height ||
