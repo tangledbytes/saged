@@ -24,7 +24,7 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
-        "types": ["resize-observer-browser"]
+        "types": ["resize-observer-browser", "node"]
     },
     "include": ["src"],
     "exclude": ["node_modules", "dist", "example"]
