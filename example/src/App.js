@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css'
-import Editor from 'saged'
+import Editor, { CodeEditor } from 'saged'
 import 'saged/dist/index.css'
 import data from './data.json'
 import useLocation from './useLocation'
@@ -36,6 +36,12 @@ const Switch = (path) => {
                         )}
                         readonly
                     />
+                </div>
+            )
+        case path === '/saged/code-editor':
+            return (
+                <div className='editor'>
+                    <CodeEditor header footer/>
                 </div>
             )
 

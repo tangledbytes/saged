@@ -1,6 +1,6 @@
 {
     "name": "saged",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Saged is the editor used on blog.sagacious.dev site. It embeds draftjs and monaco right out of the box.",
     "author": "utkarsh-pro",
     "license": "Apache-2.0",
@@ -63,5 +63,12 @@
         "dompurify": "^2.0.11",
         "draft-js": "^0.11.5",
         "marked": "^1.1.0"
-    }
+    },
+    "keywords": [
+        "wysiwyg-editor",
+        "react",
+        "draftjs",
+        "wysiwyg",
+        "editor"
+    ]
 }
