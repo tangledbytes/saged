@@ -1,9 +1,10 @@
 import React from 'react'
 import './index.css'
 import Editor, { CodeEditor } from 'saged'
-import 'saged/dist/index.css'
 import data from './data.json'
 import useLocation from './useLocation'
+import 'saged/dist/index.css'
+import 'draft-js/dist/Draft.css'
 
 const content = JSON.stringify(data)
 

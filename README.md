@@ -26,6 +26,7 @@ import React from 'react'
 
 import Editor from 'saged'
 import 'saged/dist/index.css'
+import 'draft-js/dist/Draft.css'
 
 function Editor() {
     return <Editor />
@@ -38,8 +39,9 @@ Configuring the editor
 import React from 'react'
 
 import Editor from 'saged'
-import 'saged/dist/index.css'
 import Classes from './package.module.css'
+import 'saged/dist/index.css'
+import 'draft-js/dist/Draft.css'
 
 function Editor() {
     return (
