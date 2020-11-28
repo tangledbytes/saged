@@ -1,29 +1,69 @@
-# sag-editor
+# saged
 
-> Sag-Editor is the editor used on blog.sagacious.dev site. It embeds draftjs and monaco right out of the box.
+> saged is the editor used on blog.sagacious.dev site. It embeds draftjs and monaco right out of the box.
 
-[![NPM](https://img.shields.io/npm/v/sag-editor.svg)](https://www.npmjs.com/package/sag-editor) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/saged.svg)](https://www.npmjs.com/package/saged) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save sag-editor
+npm install --save saged
 ```
+
+## Features
+
+1. WYSIWYG editor
+2. Configurable
+3. Comes with monaco editor (VS Code editor) baked in
+4. Markdown support
 
 ## Usage
 
+Using the defaults
+
 ```tsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from 'sag-editor'
-import 'sag-editor/dist/index.css'
+import Editor from 'saged'
+import 'saged/dist/index.css'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+function Editor() {
+    return <Editor />
 }
 ```
+
+Configuring the editor
+
+```tsx
+import React from 'react'
+
+import Editor from 'saged'
+import 'saged/dist/index.css'
+import Classes from './package.module.css'
+
+function Editor() {
+    return (
+        <Editor
+            content={localStorage.getItem('saged-example-item-eerTy443')}
+            storageKey="some-random-key"
+            className={Classes.editorOverride}
+            readonly
+        />
+    )
+}
+```
+
+## Props
+
+1. readOnly (boolean): Specify if the editor should open in a read only mode. If opened in readonly mode then it will act as a previewer.
+2. content (string): Content to be displayed by the text editor. This is supposed to follow the draftjs content schema and hence is not meant to be handled manually.
+3. storageKey (string): Saged stores the content in the local storage. This key is used to store the data in local storage. Defaults to "article".
+4. className (string): Override the default style of the editor container using this class name. Note that not all the styles can be overidden.
+
+## Caveats
+
+1. Media uploads is not supported at the moment. Markdown can be used to embed such content.
+2. Table is not supported yet, markdown can be used to embed such content.
 
 ## License
 
