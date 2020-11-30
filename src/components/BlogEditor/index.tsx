@@ -22,8 +22,6 @@ import {
 } from './utility'
 import Button from '../Button'
 
-import 'draft-js/dist/Draft.css'
-
 // ======================================== INTERFACES =============================================
 
 /**

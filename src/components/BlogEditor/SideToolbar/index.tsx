@@ -159,7 +159,11 @@ function SideToolbar({
 
         setPostion({
             left: -(16 * offSetLeft),
-            top: node.offsetTop + totalNodeHeight / 2 + 16 * offSetTop
+            top:
+                node.offsetTop +
+                totalNodeHeight / 2 +
+                16 * offSetTop -
+                16 / 1.25
         })
     }, [editor, editorRef])
 
