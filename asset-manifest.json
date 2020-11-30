@@ -1,36 +1,22 @@
 {
   "files": {
-    "main.css": "/saged/static/css/main.14b647db.chunk.css",
-    "main.js": "/saged/static/js/main.025a6d91.chunk.js",
-    "main.js.map": "/saged/static/js/main.025a6d91.chunk.js.map",
-    "runtime-main.js": "/saged/static/js/runtime-main.f38dc430.js",
-    "runtime-main.js.map": "/saged/static/js/runtime-main.f38dc430.js.map",
-    "static/css/2.ae87030c.chunk.css": "/saged/static/css/2.ae87030c.chunk.css",
-    "static/js/2.ee355c0f.chunk.js": "/saged/static/js/2.ee355c0f.chunk.js",
-    "static/js/2.ee355c0f.chunk.js.map": "/saged/static/js/2.ee355c0f.chunk.js.map",
+    "main.css": "/saged/static/css/main.e14c32b2.chunk.css",
+    "main.js": "/saged/static/js/main.1ca872a9.chunk.js",
+    "main.js.map": "/saged/static/js/main.1ca872a9.chunk.js.map",
+    "runtime-main.js": "/saged/static/js/runtime-main.a7e6c414.js",
+    "runtime-main.js.map": "/saged/static/js/runtime-main.a7e6c414.js.map",
+    "static/js/2.9344ecdc.chunk.js": "/saged/static/js/2.9344ecdc.chunk.js",
+    "static/js/2.9344ecdc.chunk.js.map": "/saged/static/js/2.9344ecdc.chunk.js.map",
     "index.html": "/saged/index.html",
-    "precache-manifest.8c772c5e90b1be719cf4008d4860b11d.js": "/saged/precache-manifest.8c772c5e90b1be719cf4008d4860b11d.js",
+    "precache-manifest.9b9e2d66de91f57b0202349ef2bc88e8.js": "/saged/precache-manifest.9b9e2d66de91f57b0202349ef2bc88e8.js",
     "service-worker.js": "/saged/service-worker.js",
-    "static/css/2.ae87030c.chunk.css.map": "/saged/static/css/2.ae87030c.chunk.css.map",
-    "static/css/main.14b647db.chunk.css.map": "/saged/static/css/main.14b647db.chunk.css.map",
-    "static/js/2.ee355c0f.chunk.js.LICENSE.txt": "/saged/static/js/2.ee355c0f.chunk.js.LICENSE.txt",
-    "static/media/blockquote~KUbmhmdU.svg": "/saged/static/media/blockquote~KUbmhmdU.02705ada.svg",
-    "static/media/bold~smduNppc.svg": "/saged/static/media/bold~smduNppc.1396e979.svg",
-    "static/media/code~bnLStfXP.svg": "/saged/static/media/code~bnLStfXP.239fded4.svg",
-    "static/media/heading~QOqIzRab.svg": "/saged/static/media/heading~QOqIzRab.0d1155f5.svg",
-    "static/media/italic~bkFUWxpm.svg": "/saged/static/media/italic~bkFUWxpm.d72dac67.svg",
-    "static/media/markdown~lbIWfMVw.svg": "/saged/static/media/markdown~lbIWfMVw.91b80a13.svg",
-    "static/media/orderedlist~GrRCmwBQ.svg": "/saged/static/media/orderedlist~GrRCmwBQ.e9866d99.svg",
-    "static/media/plus~YOwKNLmC.svg": "/saged/static/media/plus~YOwKNLmC.c6e2430b.svg",
-    "static/media/subheading~GoYdSCEx.svg": "/saged/static/media/subheading~GoYdSCEx.1b1e8de6.svg",
-    "static/media/underline~dQaKFara.svg": "/saged/static/media/underline~dQaKFara.e281fa6a.svg",
-    "static/media/unorderedlist~bfbrgOYJ.svg": "/saged/static/media/unorderedlist~bfbrgOYJ.e797468f.svg"
+    "static/css/main.e14c32b2.chunk.css.map": "/saged/static/css/main.e14c32b2.chunk.css.map",
+    "static/js/2.9344ecdc.chunk.js.LICENSE.txt": "/saged/static/js/2.9344ecdc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f38dc430.js",
-    "static/css/2.ae87030c.chunk.css",
-    "static/js/2.ee355c0f.chunk.js",
-    "static/css/main.14b647db.chunk.css",
-    "static/js/main.025a6d91.chunk.js"
+    "static/js/runtime-main.a7e6c414.js",
+    "static/js/2.9344ecdc.chunk.js",
+    "static/css/main.e14c32b2.chunk.css",
+    "static/js/main.1ca872a9.chunk.js"
   ]
 }
