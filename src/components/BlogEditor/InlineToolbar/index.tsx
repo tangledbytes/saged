@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Classes from './index.module.css'
-import Bold from '../../../assets/bold.svg'
-import Italic from '../../../assets/italic.svg'
-import Underline from '../../../assets/underline.svg'
+import Bold from '../../svgs/bold'
+import Italic from '../../svgs/italic'
+import Underline from '../../svgs/underline'
+import Wrapper from '../../svgs/Wrapper'
 
 /**
  * @returns The selected area
@@ -70,10 +71,16 @@ const StyleButton = ({ onToggle, active, style, label }: IStyleButton) => {
 }
 
 const INLINE_STYLES = [
-    { label: <img className={Classes.icon} src={Bold} />, style: 'BOLD' },
-    { label: <img className={Classes.icon} src={Italic} />, style: 'ITALIC' },
     {
-        label: <img className={Classes.icon} src={Underline} />,
+        label: <Wrapper className={Classes.icon} src={<Bold />} />,
+        style: 'BOLD'
+    },
+    {
+        label: <Wrapper className={Classes.icon} src={<Italic />} />,
+        style: 'ITALIC'
+    },
+    {
+        label: <Wrapper className={Classes.icon} src={<Underline />} />,
         style: 'UNDERLINE'
     }
 ]

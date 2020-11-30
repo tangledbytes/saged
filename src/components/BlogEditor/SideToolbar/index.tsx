@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import Classes from './index.module.css'
-import Plus from '../../../assets/plus.svg'
-import H1 from '../../../assets/heading.svg'
-import H2 from '../../../assets/subheading.svg'
-import Bq from '../../../assets/blockquote.svg'
-import Ul from '../../../assets/unorderedlist.svg'
-import Ol from '../../../assets/orderedlist.svg'
-import Code from '../../../assets/code.svg'
-import Md from '../../../assets/markdown.svg'
+import Plus from '../../svgs/plus'
+import H1 from '../../svgs/heading'
+import H2 from '../../svgs/subheading'
+import Bq from '../../svgs/blockquote'
+import Ul from '../../svgs/unorderedlist'
+import Ol from '../../svgs/orderedlist'
+import Code from '../../svgs/code'
+import Md from '../../svgs/markdown'
 import { getNodeFromKey } from '../utility'
+import Wrapper from '../../svgs/Wrapper'
 
 // ==================================== INTERFACE ===============================
 
@@ -58,24 +59,33 @@ const StyleButton = ({
 }
 
 const BLOCK_TYPES = [
-    { label: <img className={Classes.icon} src={H1} />, style: 'header-one' },
-    { label: <img className={Classes.icon} src={H2} />, style: 'header-two' },
-    { label: <img className={Classes.icon} src={Bq} />, style: 'blockquote' },
     {
-        label: <img className={Classes.icon} src={Ul} />,
+        label: <Wrapper className={Classes.icon} src={<H1 />} />,
+        style: 'header-one'
+    },
+    {
+        label: <Wrapper className={Classes.icon} src={<H2 />} />,
+        style: 'header-two'
+    },
+    {
+        label: <Wrapper className={Classes.icon} src={<Bq />} />,
+        style: 'blockquote'
+    },
+    {
+        label: <Wrapper className={Classes.icon} src={<Ul />} />,
         style: 'unordered-list-item'
     },
     {
-        label: <img className={Classes.icon} src={Ol} />,
+        label: <Wrapper className={Classes.icon} src={<Ol />} />,
         style: 'ordered-list-item'
     },
     {
-        label: <img className={Classes.icon} src={Code} />,
+        label: <Wrapper className={Classes.icon} src={<Code />} />,
         style: 'atomic',
         subType: 'monaco'
     },
     {
-        label: <img className={Classes.icon} src={Md} />,
+        label: <Wrapper className={Classes.icon} src={<Md />} />,
         style: 'atomic',
         subType: 'markdown'
     }
@@ -159,7 +169,7 @@ function SideToolbar({
                 className={Classes.iconContainer}
                 onClick={() => setShow(!show)}
             >
-                <img className={Classes.plusIcon} src={Plus} />
+                <Wrapper className={Classes.plusIcon} src={<Plus />} />
             </div>
             <div
                 ref={ref}
