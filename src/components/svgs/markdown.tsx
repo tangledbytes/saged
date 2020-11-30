@@ -4,7 +4,6 @@ export default function Markdown() {
     return (
         <svg
             height='100%'
-            width='auto'
             viewBox='0 0 16 16'
             className='bi bi-markdown'
             fill='currentColor'
