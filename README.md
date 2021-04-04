@@ -25,7 +25,6 @@ Using the defaults
 import React from 'react'
 
 import Editor from 'saged'
-import 'saged/dist/index.css'
 
 function Editor() {
     return <Editor />
@@ -39,7 +38,6 @@ import React from 'react'
 
 import Editor from 'saged'
 import Classes from './package.module.css'
-import 'saged/dist/index.css'
 
 function Editor() {
     return (
