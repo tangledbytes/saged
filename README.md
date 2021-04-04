@@ -53,10 +53,11 @@ function Editor() {
 
 ## Props
 
-1. readOnly (boolean): Specify if the editor should open in a read only mode. If opened in readonly mode then it will act as a previewer.
-2. content (string): Content to be displayed by the text editor. This is supposed to follow the draftjs content schema and hence is not meant to be handled manually.
-3. storageKey (string): Saged stores the content in the local storage. This key is used to store the data in local storage. Defaults to "article".
-4. className (string): Override the default style of the editor container using this class name. Note that not all the styles can be overidden.
+1. readOnly (`boolean`): Specify if the editor should open in a read only mode. If opened in readonly mode then it will act as a previewer.
+2. content (`string`): Content to be displayed by the text editor. This is supposed to follow the draftjs content schema and hence is not meant to be handled manually.
+3. storageKey (`string`): Saged stores the content in the local storage. This key is used to store the data in local storage. Defaults to "article".
+4. className (`string`): Override the default style of the editor container using this class name. Note that not all the styles can be overidden.
+5. onChange (`(content: string) => void`): Optional function which will be invoked when editor state changes
 
 ## Caveats
 
