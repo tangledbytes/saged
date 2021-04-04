@@ -32,6 +32,7 @@ export interface IBlogEditor {
     content?: string
     storageKey?: string
     className?: string
+    onChange?: (content: string) => void;
 }
 
 // ========================================= JSS STYLES ============================================
@@ -166,7 +167,8 @@ function BlogEditor({
     readonly,
     content,
     className,
-    storageKey = 'article'
+    storageKey = 'article',
+    onChange
 }: IBlogEditor) {
     /**
      * Stores the state of the editor
@@ -193,10 +195,9 @@ function BlogEditor({
      * saveToStorageFn stores the editor contentState
      * into the local storage
      */
-    const saveToStorageFn = useCallback(() => {
-        const content = state.getCurrentContent()
+    const saveToStorageFn = useCallback((content: string) => {
         saveToLocalStorage({
-            content: serializeContentState(content),
+            content,
             key: storageKey
         })
     }, [state])
@@ -249,8 +250,10 @@ function BlogEditor({
     }
 
     useEffect(() => {
-        saveToStorageFn()
-    }, [saveToStorageFn, state])
+        const content = serializeContentState(state.getCurrentContent())
+        saveToStorageFn(content)
+        onChange?.(content)
+    }, [saveToStorageFn, state, onChange])
 
     /**
      * toggleInlineStyle toggles the inline style
@@ -347,7 +350,7 @@ function BlogEditor({
      */
     const mapKeyToEditorCommand = (e: any) => {
         // Save to local storage on each key press
-        saveToStorageFn()
+        saveToStorageFn(serializeContentState(state.getCurrentContent()))
 
         // Change tab functionality
         if (e.keyCode === 9 /* TAB */) {

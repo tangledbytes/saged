@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default (initial) => {
+export default function useLocation(initial){
     const [location, updateLocation] = useState(initial)
     function setLocation(location) {
         window.history.pushState({ data: 'any' }, location, location)
