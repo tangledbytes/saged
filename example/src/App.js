@@ -3,13 +3,12 @@ import './index.css'
 import Editor, { CodeEditor } from 'saged'
 import data from './data.json'
 import useLocation from './useLocation'
-import 'saged/dist/index.css'
 
 const content = JSON.stringify(data)
 
 const Switch = (path) => {
     switch (true) {
-        case path === '/saged/':
+        case path === '/saged/' || path === '/saged':
             return (
                 <div className='editor'>
                     <Editor content={content} />
