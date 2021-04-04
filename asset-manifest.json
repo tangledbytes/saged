@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/saged/static/css/main.315df124.chunk.css",
-    "main.js": "/saged/static/js/main.a72e114c.chunk.js",
-    "main.js.map": "/saged/static/js/main.a72e114c.chunk.js.map",
+    "main.css": "/saged/static/css/main.ff63a3d3.chunk.css",
+    "main.js": "/saged/static/js/main.74d89b0d.chunk.js",
+    "main.js.map": "/saged/static/js/main.74d89b0d.chunk.js.map",
     "runtime-main.js": "/saged/static/js/runtime-main.a7e6c414.js",
     "runtime-main.js.map": "/saged/static/js/runtime-main.a7e6c414.js.map",
-    "static/js/2.dc761dff.chunk.js": "/saged/static/js/2.dc761dff.chunk.js",
-    "static/js/2.dc761dff.chunk.js.map": "/saged/static/js/2.dc761dff.chunk.js.map",
+    "static/js/2.11b69b10.chunk.js": "/saged/static/js/2.11b69b10.chunk.js",
+    "static/js/2.11b69b10.chunk.js.map": "/saged/static/js/2.11b69b10.chunk.js.map",
     "index.html": "/saged/index.html",
-    "precache-manifest.9b1425cf288785e6396819234dd90e57.js": "/saged/precache-manifest.9b1425cf288785e6396819234dd90e57.js",
+    "precache-manifest.fae6e2f9dd390647737af821fd9465e2.js": "/saged/precache-manifest.fae6e2f9dd390647737af821fd9465e2.js",
     "service-worker.js": "/saged/service-worker.js",
-    "static/css/main.315df124.chunk.css.map": "/saged/static/css/main.315df124.chunk.css.map",
-    "static/js/2.dc761dff.chunk.js.LICENSE.txt": "/saged/static/js/2.dc761dff.chunk.js.LICENSE.txt"
+    "static/css/main.ff63a3d3.chunk.css.map": "/saged/static/css/main.ff63a3d3.chunk.css.map",
+    "static/js/2.11b69b10.chunk.js.LICENSE.txt": "/saged/static/js/2.11b69b10.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a7e6c414.js",
-    "static/js/2.dc761dff.chunk.js",
-    "static/css/main.315df124.chunk.css",
-    "static/js/main.a72e114c.chunk.js"
+    "static/js/2.11b69b10.chunk.js",
+    "static/css/main.ff63a3d3.chunk.css",
+    "static/js/main.74d89b0d.chunk.js"
   ]
 }
