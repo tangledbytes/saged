@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react'
 import AtomicBlockWrapper from './AtomicBlockWrapper'
-import Classes from './index.module.css'
+import { createUseStyles } from 'react-jss'
 
 import {
     Editor as DraftEditor,
@@ -34,31 +34,69 @@ export interface IBlogEditor {
     className?: string
 }
 
-// ========================================= HELPER FUNCTIONS =======================================
+// ========================================= JSS STYLES ============================================
 
-/**
- * Assigns custom classes to the draft js blocks
- * @param ContentBlock
- */
-const blockStyleFn = (ContentBlock: any) => {
-    const type = ContentBlock.getType()
-    switch (type) {
-        case 'header-one':
-            return Classes.editorH1
-        case 'header-two':
-            return Classes.editorH2
-        case 'blockquote':
-            return Classes.editorBlockquote
-        case 'ordered-list-item':
-            return Classes.editorOL
-        case 'unordered-list-item':
-            return Classes.editorUL
-        case 'atomic':
-            return Classes.editorAtomic
-        default:
-            return Classes.editorText
+const useStyles = createUseStyles({
+    container: {
+        height: '100%',
+        width: '100%',
+        boxSizing: 'border-box'
+    },
+    editMode: {
+        backgroundColor: 'rgb(238, 245, 258)',
+        padding: '2rem'
+    },
+    editor: {
+        boxSizing: 'border-box',
+        padding: '1rem 2rem',
+        backgroundColor: 'white',
+        borderRadius: '0.5rem',
+        width: '100%',
+        minHeight: '90vh',
+        color: 'rgba(0, 0, 0, 0.8)',
+        position: 'relative',
+        '& *:first-child': {
+            marginTop: 0
+        }
+    },
+    editorH1: {
+        fontSize: '2.4rem',
+        fontWeight: '500',
+        margin: '0.4rem 0'
+    },
+    editorH2: {
+        fontSize: '1.8rem',
+        fontWeight: 500,
+        margin: '0.4rem 0'
+    },
+    editorText: {
+        fontSize: '1.21rem',
+        margin: '0.4rem 0'
+    },
+    editorBlockquote: {
+        fontSize: '1.22rem',
+        margin: '0.4rem 0',
+        padding: '0.5rem 1.5rem',
+        borderLeft: '3px solid #3eb0ef'
+    },
+    editorUL: {
+        fontSize: '1.21rem',
+        margin: '0.4rem 0'
+    },
+    editorOL: {
+        fontSize: '1.21rem',
+        margin: '0.4rem 0'
+    },
+    editorAtomic: {
+        margin: '0.2rem 0'
+    },
+    btn: {
+        margin: '2rem 1.5rem 0 0',
+        fontSize: '1.2rem'
     }
-}
+})
+
+// ========================================= HELPER FUNCTIONS =======================================
 
 /**
  * Converts the javascript state object into JSON
@@ -137,6 +175,8 @@ function BlogEditor({
         initializeEditorState({ content, storageKey, readonly })
     )
 
+    const Classes = useStyles()
+
     /**
      * Stores the state if the code editor is active or not
      */
@@ -183,6 +223,30 @@ function BlogEditor({
             }
         }
     }, [])
+
+    /**
+     * Assigns custom classes to the draft js blocks
+     * @param ContentBlock
+     */
+    const blockStyleFn = (ContentBlock: any) => {
+        const type = ContentBlock.getType()
+        switch (type) {
+            case 'header-one':
+                return Classes.editorH1
+            case 'header-two':
+                return Classes.editorH2
+            case 'blockquote':
+                return Classes.editorBlockquote
+            case 'ordered-list-item':
+                return Classes.editorOL
+            case 'unordered-list-item':
+                return Classes.editorUL
+            case 'atomic':
+                return Classes.editorAtomic
+            default:
+                return Classes.editorText
+        }
+    }
 
     useEffect(() => {
         saveToStorageFn()

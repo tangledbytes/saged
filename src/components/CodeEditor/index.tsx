@@ -3,7 +3,7 @@ import Manoco from '@monaco-editor/react'
 import { SUPPORTED_LANGUAGES } from './supportedLanguages'
 import ModResizeObserver from '../../utility/ModResizeObserver'
 
-import Classes from './index.module.css'
+import { createUseStyles } from 'react-jss'
 
 // =============================== INTERFACES =======================================
 
@@ -49,6 +49,106 @@ export interface ISupportedLanguageMap {
 
 export { SUPPORTED_LANGUAGES }
 
+// ========================================== JSS STYLES ====================================================
+
+const useStyles = createUseStyles({
+    editor: {
+        height: '100%',
+        width: '100%',
+        position: 'relative',
+        '& div': {
+            boxSizing: 'border-box'
+        }
+    },
+    head: {
+        height: '2.25rem',
+        backgroundColor: 'rgb(32, 33, 36)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        borderRadius: '0.3rem 0.3rem 0 0',
+        padding: '0 0.5rem'
+    },
+    cbtns: {
+        borderRadius: '50%',
+        height: '0.725rem',
+        width: '0.725rem',
+        margin: '0 0 0 0.5rem'
+    },
+    bottom: {
+        backgroundColor: 'rgb(32, 33, 36)',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        borderRadius: '0 0 0.3rem 0.3rem',
+        padding: '0.25rem 0.5rem',
+        height: '1.5rem'
+    },
+    editorBtn: {
+        display: 'flex',
+        alignItems: 'center',
+        color: 'white',
+        fontSize: '0.8rem',
+        marginRight: '1rem',
+        cursor: 'pointer'
+    },
+    icon: {
+        marginRight: '0.25rem',
+        transform: 'rotate(0deg)',
+        transition: 'transform 400ms'
+    },
+    active: {
+        transform: 'rotate(180deg)',
+        transition: 'transform 400ms'
+    },
+    SL: {
+        maxHeight: '100%',
+        display: 'flex',
+        flexDirection: 'column'
+    },
+    slinput: {
+        outline: 'none',
+        backgroundColor: '#2d2e35',
+        color: 'white',
+        padding: '0.5rem',
+        border: '1px solid rgb(7, 131, 233)',
+        borderRadius: '0.25rem',
+        width: 'calc("100%" - 1rem)',
+        '&::placeholder': {
+            color: 'rgba(255, 255, 255, 0.6)'
+        }
+    },
+    sllist: {
+        maxHeight: '80%',
+        color: 'white',
+        overflowY: 'auto',
+        padding: '0.75rem',
+        backgroundColor: '#1e1e1e',
+        boxShadow: '11px 13px 10px rgb(11, 13, 13, 0.4)',
+        fontSize: '0.9rem',
+        '& div': {
+            marginTop: '0.5rem',
+            cursor: 'pointer'
+        },
+        '&::-webkit-scrollbar': {
+            width: '0.8rem'
+        },
+        '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#404040'
+        }
+    },
+    option: {
+        position: 'absolute',
+        top: '3.5rem',
+        zIndex: '5',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        padding: '0.25rem',
+        width: '60%',
+        height: '80%'
+    }
+})
+
 // ========================================== COMPONENTS ====================================================
 
 /**
@@ -63,6 +163,8 @@ function EditorBtn({
     setRef,
     active = false
 }: EditorBtnProps) {
+    const Classes = useStyles()
+
     const onClickHander = (e: React.MouseEvent) => {
         onClick(e)
     }
@@ -78,7 +180,7 @@ function EditorBtn({
                     &#9650;
                 </div>
             )}
-            <div className={Classes.editorBtnName}>{name}</div>
+            <div>{name}</div>
         </div>
     )
 }
@@ -98,6 +200,7 @@ function SupportedLanguages({
     const [value, setValue] = useState<string>('')
     const ref = useRef<HTMLDivElement>(null)
     const inputRef = useRef<HTMLInputElement>(null)
+    const Classes = useStyles()
 
     useEffect(() => {
         document.addEventListener('mousedown', handleMouseDown)
@@ -136,7 +239,7 @@ function SupportedLanguages({
 
     return (
         <div className={Classes.SL} ref={ref}>
-            <div className={Classes.slinputContainer}>
+            <div>
                 <input
                     ref={inputRef}
                     className={Classes.slinput}
@@ -181,6 +284,8 @@ function SupportedLanguages({
  * Header returns JSX for the header of the Monaco editor
  */
 function Header() {
+    const Classes = useStyles()
+
     return (
         <div className={Classes.head}>
             <div
@@ -240,6 +345,8 @@ function CodeEditor({
     const currentLanguageRef = useRef<string>(currentLanguage)
     const containerRef = useRef<HTMLDivElement>(null)
     const languageSelectorRef = useRef<HTMLDivElement>(null)
+
+    const Classes = useStyles()
 
     const setEditableHandler = () => setEditable(!editable)
     const setDisplayHandler = () => setDisplayOptions(!displayOptions)

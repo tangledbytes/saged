@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Classes from './index.module.css'
+import { createUseStyles } from 'react-jss'
 import Bold from '../../svgs/bold'
 import Italic from '../../svgs/italic'
 import Underline from '../../svgs/underline'
@@ -48,9 +48,49 @@ interface IStyleButton {
     label: JSX.Element
 }
 
+// ==================================== JSS STYLES ==============================
+
+const useStyles = createUseStyles({
+    toolbarContainer: {
+        position: 'absolute',
+        transform: 'translate(-50%, -100%)',
+        backgroundColor: 'white',
+        boxShadow: '0 3px 15px -3px rgba(13, 20, 33, 0.13)',
+        border: '1px solid #333',
+        borderRadius: '0.4rem',
+        zIndex: '100'
+    },
+    controls: {
+        fontFamily: "'Helvetica', sans-serif",
+        fontSize: '0.9rem',
+        userSelect: 'none',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '0.25rem 0.5rem'
+    },
+    styleButton: {
+        color: 'black',
+        cursor: 'pointer',
+        padding: '0.2rem 0.3rem',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    activeButton: {
+        backgroundColor: '#ccc'
+    },
+    icon: {
+        height: '1.21rem',
+        width: '1.21rem'
+    }
+})
+
 // ==================================== HELPER COMPONENT ========================
 
 const StyleButton = ({ onToggle, active, style, label }: IStyleButton) => {
+    const Classes = useStyles()
+
     const onToggleHandler = (
         e: React.MouseEvent<HTMLSpanElement, MouseEvent>
     ) => {
@@ -70,23 +110,24 @@ const StyleButton = ({ onToggle, active, style, label }: IStyleButton) => {
     )
 }
 
-const INLINE_STYLES = [
-    {
-        label: <Wrapper className={Classes.icon} src={<Bold />} />,
-        style: 'BOLD'
-    },
-    {
-        label: <Wrapper className={Classes.icon} src={<Italic />} />,
-        style: 'ITALIC'
-    },
-    {
-        label: <Wrapper className={Classes.icon} src={<Underline />} />,
-        style: 'UNDERLINE'
-    }
-]
-
 const InlineStyleControls = (props: any) => {
     const currentStyle = props.editorState.getCurrentInlineStyle()
+    const Classes = useStyles()
+
+    const INLINE_STYLES = [
+        {
+            label: <Wrapper className={Classes.icon} src={<Bold />} />,
+            style: 'BOLD'
+        },
+        {
+            label: <Wrapper className={Classes.icon} src={<Italic />} />,
+            style: 'ITALIC'
+        },
+        {
+            label: <Wrapper className={Classes.icon} src={<Underline />} />,
+            style: 'UNDERLINE'
+        }
+    ]
 
     return (
         <div className={Classes.controls}>
@@ -118,6 +159,7 @@ function InlineToolbar({
     toggleInlineStyle
 }: ToolbarConfig) {
     const [position, setPostion] = useState(initialPosition)
+    const Classes = useStyles()
 
     useEffect(() => {
         const selectionState = editor.getSelection()

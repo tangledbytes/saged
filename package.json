@@ -62,7 +62,8 @@
         "@monaco-editor/react": "^3.3.0",
         "dompurify": "^2.0.11",
         "draft-js": "^0.11.5",
-        "marked": "^1.1.0"
+        "marked": "^1.1.0",
+        "react-jss": "^10.6.0"
     },
     "keywords": [
         "wysiwyg-editor",
