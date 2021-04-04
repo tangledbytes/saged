@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, Fragment } from 'react'
-import Manoco from '@monaco-editor/react'
+import Manoco, {  } from '@monaco-editor/react'
 import { SUPPORTED_LANGUAGES } from './supportedLanguages'
-import ModResizeObserver from '../../utility/ModResizeObserver'
 
 import { createUseStyles } from 'react-jss'
 
@@ -18,6 +17,7 @@ export interface EditorProps {
     height?: string
     onBlur?: (event?: any) => void
     onFocus?: (event?: any) => void
+    theme?: "vs-dark" | "light"
 }
 
 interface EditorBtnProps {
@@ -113,7 +113,7 @@ const useStyles = createUseStyles({
         padding: '0.5rem',
         border: '1px solid rgb(7, 131, 233)',
         borderRadius: '0.25rem',
-        width: 'calc("100%" - 1rem)',
+        width: 'calc(100% - 1rem)',
         '&::placeholder': {
             color: 'rgba(255, 255, 255, 0.6)'
         }
@@ -239,7 +239,7 @@ function SupportedLanguages({
 
     return (
         <div className={Classes.SL} ref={ref}>
-            <div>
+            <div style={{ width: "100%" }}>
                 <input
                     ref={inputRef}
                     className={Classes.slinput}
@@ -334,6 +334,7 @@ function CodeEditor({
     footer = false,
     header = false,
     height = '20rem',
+    theme = "vs-dark",
     onBlur,
     onFocus
 }: EditorProps) {
@@ -355,7 +356,7 @@ function CodeEditor({
         setCurrentLanguage(language)
     }
 
-    const handleMount = (_valueGetter: any, editor: any) => {
+    const handleMount = (editor: any) => {
         ref.current = editor
         ref.current.onDidBlurEditorText((ev: any) => {
             if (onBlur) onBlur(ev)
@@ -391,24 +392,6 @@ function CodeEditor({
         setCurrentLanguageHandler(language)
     }, [language])
 
-    useEffect(() => {
-        if (containerRef.current) {
-            const observer = new ModResizeObserver(() => {
-                console.log('Observing editor...')
-                ref.current && ref.current.layout()
-            })
-
-            observer.observe(containerRef.current)
-
-            return () => {
-                containerRef.current && observer.unobserve(containerRef.current)
-                console.log('Unobserve the editor...')
-            }
-        }
-
-        return () => undefined
-    }, [])
-
     return (
         <div className={className} style={{ height }} ref={containerRef}>
             <div className={Classes.editor}>
@@ -428,8 +411,8 @@ function CodeEditor({
                     options={{ readOnly: !editable }}
                     value={code}
                     language={currentLanguage}
-                    theme='dark'
-                    editorDidMount={handleMount}
+                    theme={theme}
+                    onMount={handleMount}
                     height={`calc(100% - ${getHeight(footer, header)}rem)`}
                 />
                 {footer && (
