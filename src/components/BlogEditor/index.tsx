@@ -14,12 +14,7 @@ import {
 
 import SideToolbar from './SideToolbar'
 import InlineToolbar from './InlineToolbar'
-import {
-    getNodeFromKey,
-    saveToLocalStorageHOF,
-    retrieveFromLocalStorageHOF,
-    getAbsolutePosition
-} from './utility'
+import { getNodeFromKey, getAbsolutePosition } from './utility'
 import Button from '../Button'
 
 // ======================================== INTERFACES =============================================
@@ -32,7 +27,7 @@ export interface IBlogEditor {
     content?: string
     storageKey?: string
     className?: string
-    onChange?: (content: string) => void;
+    onChange?: (content: string) => void
 }
 
 // ========================================= JSS STYLES ============================================
@@ -100,18 +95,6 @@ const useStyles = createUseStyles({
 // ========================================= HELPER FUNCTIONS =======================================
 
 /**
- * Converts the javascript state object into JSON
- * and then stores it in the localstorage
- * @param data
- */
-const saveToLocalStorage = saveToLocalStorageHOF()
-
-/**
- * Retreive the data from local storage
- */
-const retrieveFromLocalStorage = retrieveFromLocalStorageHOF()
-
-/**
  * serializeContentState serializes the content state into string
  * @param contentState
  */
@@ -134,26 +117,10 @@ const deserializeToContentState = (content: string) => {
  * to initialize the state
  * @param content
  */
-const initializeEditorState = ({
-    content,
-    readonly,
-    storageKey
-}: {
-    content?: string
-    readonly?: boolean
-    storageKey: string
-}) => {
+const initializeEditorState = ({ content }: { content?: string }) => {
     // If some content was passed in that initialize state from that
     if (content) {
         return EditorState.createWithContent(deserializeToContentState(content))
-    }
-
-    // If no content was provided then look for older saved value
-    const oldContent = retrieveFromLocalStorage({ key: storageKey })
-    if (oldContent && !readonly) {
-        return EditorState.createWithContent(
-            deserializeToContentState(oldContent)
-        )
     }
 
     // If no content and older saved value was found then
@@ -167,14 +134,13 @@ function BlogEditor({
     readonly,
     content,
     className,
-    storageKey = 'article',
     onChange
 }: IBlogEditor) {
     /**
      * Stores the state of the editor
      */
     const [state, setState] = useState(
-        initializeEditorState({ content, storageKey, readonly })
+        initializeEditorState({ content })
     )
 
     const Classes = useStyles()
@@ -190,17 +156,6 @@ function BlogEditor({
     const DraftRef = useRef<DraftEditor>(null)
 
     const DraftContainerRef = useRef<HTMLDivElement>(null)
-
-    /**
-     * saveToStorageFn stores the editor contentState
-     * into the local storage
-     */
-    const saveToStorageFn = useCallback((content: string) => {
-        saveToLocalStorage({
-            content,
-            key: storageKey
-        })
-    }, [state])
 
     /**
      * Memoized implementation of the renderer function
@@ -251,9 +206,8 @@ function BlogEditor({
 
     useEffect(() => {
         const content = serializeContentState(state.getCurrentContent())
-        saveToStorageFn(content)
         onChange?.(content)
-    }, [saveToStorageFn, state, onChange])
+    }, [state, onChange])
 
     /**
      * toggleInlineStyle toggles the inline style
@@ -349,9 +303,6 @@ function BlogEditor({
      * @param e
      */
     const mapKeyToEditorCommand = (e: any) => {
-        // Save to local storage on each key press
-        saveToStorageFn(serializeContentState(state.getCurrentContent()))
-
         // Change tab functionality
         if (e.keyCode === 9 /* TAB */) {
             const newEditorState = RichUtils.onTab(e, state, 4 /* maxDepth */)

@@ -1,9 +1,10 @@
 export const getNodeFromKey = (key: string) => {
-    return document.querySelectorAll(`[data-offset-key="${key}-0-0"]`)[0]
+    if (document) return document.querySelectorAll(`[data-offset-key="${key}-0-0"]`)[0]
+    return []
 }
 
 export const getAbsolutePosition = (node: HTMLDivElement | null) => {
-    if (node) {
+    if (node && window && document) {
         const offsetTop =
             window.pageYOffset || document.documentElement.scrollTop
         const offsetLeft =
@@ -20,27 +21,15 @@ export const getAbsolutePosition = (node: HTMLDivElement | null) => {
     return { top: 0, left: 0 }
 }
 
-export const saveToLocalStorageHOF = () => {
+// throttleHOF takes in a function and returns a throttling function
+// which is throttled as per the timeout optionally given
+export function throttleHOF<T>(func: (param: T) => void, timeout = 300): (param: T) => void {
     let timer: any
 
-    return ({
-        key = 'article',
-        content
-    }: {
-        key?: string
-        content: string
-    }) => {
+    return (param: T) => {
         clearTimeout(timer)
         timer = setTimeout(() => {
-            const lstore = window.localStorage || localStorage
-            lstore.setItem(key, content)
-        }, 300)
-    }
-}
-
-export const retrieveFromLocalStorageHOF = () => {
-    return ({ key }: { key: string }) => {
-        const lstore = window.localStorage || localStorage
-        return lstore.getItem(key)
+            func(param)
+        }, timeout)
     }
 }
