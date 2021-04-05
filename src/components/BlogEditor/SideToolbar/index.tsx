@@ -223,6 +223,8 @@ function SideToolbar({
             currentContentBlock.getKey()
         ) as HTMLDivElement
 
+        if(!node) return;
+
         const computedStyle = window.getComputedStyle(node)
         const totalNodeHeight = parseInt(computedStyle.height)
 

@@ -119,29 +119,38 @@ const deserializeToContentState = (content: string) => {
  */
 const initializeEditorState = ({ content }: { content?: string }) => {
     // If some content was passed in that initialize state from that
-    if (content) {
-        return EditorState.createWithContent(deserializeToContentState(content))
-    }
+    if (content) return EditorState.createWithContent(deserializeToContentState(content))
 
     // If no content and older saved value was found then
     // initialize the state from an empty object
-    return EditorState.createEmpty()
+    return createEmptyBlock()
+}
+
+const createEmptyBlock = () => {
+    return EditorState.createWithContent(
+        convertFromRaw({
+            entityMap: {},
+            blocks: [
+                {
+                    text: '',
+                    key: 'saged-empty',
+                    type: 'unstyled',
+                    entityRanges: [],
+                    depth: 0,
+                    inlineStyleRanges: []
+                }
+            ]
+        })
+    )
 }
 
 // =====================================================================================================
 
-function BlogEditor({
-    readonly,
-    content,
-    className,
-    onChange
-}: IBlogEditor) {
+function BlogEditor({ readonly, content, className, onChange }: IBlogEditor) {
     /**
      * Stores the state of the editor
      */
-    const [state, setState] = useState(
-        initializeEditorState({ content })
-    )
+    const [state, setState] = useState(createEmptyBlock())
 
     const Classes = useStyles()
 
@@ -205,9 +214,12 @@ function BlogEditor({
     }
 
     useEffect(() => {
-        const content = serializeContentState(state.getCurrentContent())
-        onChange?.(content)
+        onChange?.(serializeContentState(state.getCurrentContent()))
     }, [state, onChange])
+
+    useEffect(() => {
+        setState(initializeEditorState({ content }))
+    }, [content])
 
     /**
      * toggleInlineStyle toggles the inline style
@@ -353,9 +365,9 @@ function BlogEditor({
                     onChange={onChangeHandler}
                     blockStyleFn={blockStyleFn}
                     keyBindingFn={mapKeyToEditorCommand}
-                    // @ts-ignore
                     handleKeyCommand={handleKeyCommand}
                     blockRendererFn={memoizedBlockRendererFn}
+                    editorKey='saged'
                 />
             </div>
             {!readonly && (

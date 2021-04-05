@@ -1,6 +1,5 @@
 export const getNodeFromKey = (key: string) => {
-    if (document) return document.querySelectorAll(`[data-offset-key="${key}-0-0"]`)[0]
-    return []
+    return document?.querySelectorAll(`[data-offset-key="${key}-0-0"]`)[0]
 }
 
 export const getAbsolutePosition = (node: HTMLDivElement | null) => {
