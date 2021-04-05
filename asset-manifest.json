@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/saged/static/css/main.25e1c888.chunk.css",
-    "main.js": "/saged/static/js/main.1ab86179.chunk.js",
-    "main.js.map": "/saged/static/js/main.1ab86179.chunk.js.map",
+    "main.js": "/saged/static/js/main.892681e8.chunk.js",
+    "main.js.map": "/saged/static/js/main.892681e8.chunk.js.map",
     "runtime-main.js": "/saged/static/js/runtime-main.948d918d.js",
     "runtime-main.js.map": "/saged/static/js/runtime-main.948d918d.js.map",
     "static/js/2.faa52f3f.chunk.js": "/saged/static/js/2.faa52f3f.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.948d918d.js",
     "static/js/2.faa52f3f.chunk.js",
     "static/css/main.25e1c888.chunk.css",
-    "static/js/main.1ab86179.chunk.js"
+    "static/js/main.892681e8.chunk.js"
   ]
 }
