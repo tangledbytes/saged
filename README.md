@@ -16,6 +16,7 @@ npm install --save saged
 2. Configurable
 3. Comes with monaco editor (VS Code editor) baked in
 4. Markdown support
+5. Supports Server Side Rendering (Tested with Next.js) 🎉
 
 ## Usage
 
@@ -61,8 +62,8 @@ function Editor() {
 
 ## Caveats
 
-1. Media uploads is not supported at the moment. Markdown can be used to embed such content.
-2. Table is not supported yet, markdown can be used to embed such content.
+1. Media uploads is not supported at the moment. Markdown should be used to embed such content.
+2. Table is not supported yet, markdown should be used to embed such content.
 
 ## License
 

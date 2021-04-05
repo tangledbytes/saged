@@ -150,7 +150,7 @@ function BlogEditor({ readonly, content, className, onChange }: IBlogEditor) {
     /**
      * Stores the state of the editor
      */
-    const [state, setState] = useState(createEmptyBlock())
+    const [state, setState] = useState(initializeEditorState({ content }))
 
     const Classes = useStyles()
 
