@@ -4,6 +4,8 @@
     "version": "0.0.0",
     "private": true,
     "dependencies": {
+        "postcss-normalize": "^10.0.1",
+        "postcss-preset-env": "^9.3.0",
         "react": "file:../node_modules/react",
         "react-dom": "file:../node_modules/react-dom",
         "react-scripts": "file:../node_modules/react-scripts",

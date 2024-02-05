@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-import marked from 'marked'
+import { marked } from 'marked'
 import DomPurify from 'dompurify'
 import { createUseStyles } from 'react-jss'
 
@@ -131,9 +131,14 @@ function MarkdownEditorWrapper({
     const Classes = useStyles()
 
     useEffect(() => {
-        setValue(content || '')
-        if (ref.current)
-            ref.current.innerHTML = DomPurify.sanitize(marked(content || ''))
+        var effect = async () => {
+            setValue(content || '')
+            if (ref.current)
+                ref.current.innerHTML = DomPurify.sanitize(
+                    await marked(content || '')
+                )
+        }
+        effect().catch((ex) => console.error(ex))
     }, [content])
 
     function focusHandler(e: React.FocusEvent<HTMLDivElement>) {
@@ -141,9 +146,9 @@ function MarkdownEditorWrapper({
         if (onFocus) onFocus(e)
     }
 
-    function blurHandler(e: React.FocusEvent<HTMLDivElement>) {
+    async function blurHandler(e: React.FocusEvent<HTMLDivElement>) {
         if (ref.current)
-            ref.current.innerHTML = DomPurify.sanitize(marked(value))
+            ref.current.innerHTML = DomPurify.sanitize(await marked(value))
         if (onBlur) onBlur(e)
     }
 
